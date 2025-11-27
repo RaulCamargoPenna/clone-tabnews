@@ -4,15 +4,6 @@ async function cleanDataBase() {
   await database.query("drop schema public cascade; create schema public;");
 }
 
-console.log(
-  "Variaveis ambiente",
-  process.env.POSTGRES_HOST,
-  process.env.POSTGRES_PORT,
-  process.env.POSTGRES_USER,
-  process.env.POSTGRES_DB,
-  process.env.POSTGRES_PASSWORD,
-);
-
 beforeAll(cleanDataBase);
 
 test("GET to /api/v1/migrations should return 200", async () => {
